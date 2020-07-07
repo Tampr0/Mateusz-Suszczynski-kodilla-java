@@ -39,12 +39,20 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorNormalList() {
         //Given
         ArrayList<Integer> normalList = new ArrayList<Integer>();
+        for (int i = 0; i < 10 ; i++) {
+            normalList.add(i);
+        }
         ArrayList<Integer> oddList = new ArrayList<Integer>();
+        for (int i = 0; i < 10 ; i++) {
+            if ((i % 2) == 0) {
+                oddList.add(i);
+            }
+        }
         //When
         ArrayList<Integer> testList = new OddNumbersExterminator().exterminate(normalList);
         System.out.println("Testing: " + testList);
         //Then
-        Assert.assertEquals(oddList, normalList);
+        Assert.assertEquals(testList, oddList);
 
     }
 
