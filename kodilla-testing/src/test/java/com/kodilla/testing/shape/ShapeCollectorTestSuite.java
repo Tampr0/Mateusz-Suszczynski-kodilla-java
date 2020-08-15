@@ -52,8 +52,6 @@ public class ShapeCollectorTestSuite {
         Shape retrievedShape = shapeCollector.getFigure(0);
         //Then
         Assert.assertEquals(square, retrievedShape);
-
-
     }
 }
 
