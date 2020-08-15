@@ -1,22 +1,22 @@
 package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
-    private int numberOfUsers;
-    private int numberOfPosts;
-    private int numberOfComments;
+    private double numberOfUsers;
+    private double numberOfPosts;
+    private double numberOfComments;
     private double averageOfPostsPerUser;
     private double averageOfCommentsPerUser;
     private double averageOfCommentsPerPost;
 
     void calculateAdvStatistics(Statistics statistics) {
 
-        int numberOfUsers = statistics.userNames().size();
+        double numberOfUsers = statistics.userNames().size();
         this.numberOfUsers = +numberOfUsers;
 
-        int numberOfPosts = statistics.postsCount();
+        double numberOfPosts = statistics.postsCount();
         this.numberOfPosts = +numberOfPosts;
 
-        int numberOfComments = statistics.commentsCount();
+        double numberOfComments = statistics.commentsCount();
         this.numberOfComments = +numberOfComments;
 
         if (numberOfUsers > 0) {
@@ -39,15 +39,15 @@ public class ForumStatistics {
         System.out.println("Average of comments per post: " + averageOfCommentsPerPost);
     }
 
-    public int getNumberOfUsers() {
+    public double getNumberOfUsers() {
         return numberOfUsers;
     }
 
-    public int getNumberOfPosts() {
+    public double getNumberOfPosts() {
         return numberOfPosts;
     }
 
-    public int getNumberOfComments() {
+    public double getNumberOfComments() {
         return numberOfComments;
     }
 
