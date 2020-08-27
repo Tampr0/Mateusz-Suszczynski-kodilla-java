@@ -18,15 +18,23 @@ public final class ForumUser {
     }
 
     public void addFriend(ForumUser user) {
+        friends.add(user);
 
     }
      public boolean removeFriend(ForumUser user) {
         return friends.remove(user);
 
      }
-     public Set<String> getLocationOffFriends() {
+     public Set<String> getLocationOfFriends() {
         return friends.stream()
                 .map(friend -> friend.getLocation())
+                .collect(Collectors.toSet());
+     }
+     public Set<String> getLocationsOfFriendsOfFriends() {
+        return friends.stream()
+                .flatMap(user -> user.getFriends().stream())
+                .filter(user -> user != this)
+                .map(ForumUser::getLocation)
                 .collect(Collectors.toSet());
      }
 
