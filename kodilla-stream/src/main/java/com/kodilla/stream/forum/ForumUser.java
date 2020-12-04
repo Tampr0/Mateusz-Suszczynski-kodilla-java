@@ -21,10 +21,10 @@ public final class ForumUser {
         friends.add(user);
 
     }
-     public boolean removeFriend(ForumUser user) {
-        return friends.remove(user);
+    public void removeFriend(ForumUser user) {
+        friends.remove(user);
+    }
 
-     }
      public Set<String> getLocationOfFriends() {
         return friends.stream()
                 .map(friend -> friend.getLocation())
