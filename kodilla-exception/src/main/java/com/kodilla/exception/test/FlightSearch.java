@@ -9,19 +9,15 @@ public class FlightSearch {
         flightMap.put("Tokyo", true);
         flightMap.put("Berlin", true);
         flightMap.put("Warsaw", true);
-        flightMap.put("Madrit", false);
+        flightMap.put("Madrit", true);
 
-        if (flightMap.containsKey(flight.getArrivalAirport())) {
-            System.out.println("There is possibility to travel to " + flight.getArrivalAirport());
+        if (flightMap.getOrDefault(flight.getArrivalAirport(), false) == true) {
+            System.out.println(flight.toString() + " exists");
         }
         else {
-            throw new RouteNotFoundException("There's no route");
-
+            throw new RouteNotFoundException("There's no flight like " + flight.toString());
         }
-
-
-
-
-
     }
 }
+
+
