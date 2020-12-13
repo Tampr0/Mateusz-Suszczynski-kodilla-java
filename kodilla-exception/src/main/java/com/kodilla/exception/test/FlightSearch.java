@@ -11,7 +11,7 @@ public class FlightSearch {
         flightMap.put("Warsaw", true);
         flightMap.put("Madrit", true);
 
-        if (flightMap.getOrDefault(flight.getArrivalAirport(), false) == true) {
+        if (flightMap.getOrDefault(flight.getArrivalAirport(), false) && flightMap.getOrDefault(flight.getDepartureAirport(), false)) {
             System.out.println(flight.toString() + " exists");
         }
         else {

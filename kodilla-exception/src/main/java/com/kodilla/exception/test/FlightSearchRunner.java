@@ -4,7 +4,7 @@ public class FlightSearchRunner {
     public static void main(String[] args) {
         Flight flight1 = new Flight("Berlin", "Tokyo");
         Flight flight2 = new Flight("Warsaw", "Madrit");
-        Flight flight3 = new Flight("Wien", "Stockholm");
+        Flight flight3 = new Flight("Berlin", "Stockholm");
         Flight flight4 = new Flight("New York", "London");
         Flight flight5 = new Flight("Los Angeles", "New York");
         Flight flight6 = new Flight("Madrit", "Berlin");
