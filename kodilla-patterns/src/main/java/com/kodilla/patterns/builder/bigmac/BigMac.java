@@ -32,7 +32,11 @@ public class BigMac {
             return this;
         }
         public BigMac build() {
-            return new BigMac(bun, burgers, sauce, ingredients);
+            if (bun != null && burgers > 0 && burgers <=4 && sauce != null) {
+                return new BigMac(bun, burgers, sauce, ingredients);
+            } else {
+                throw new IllegalStateException();
+            }
         }
     }
 
