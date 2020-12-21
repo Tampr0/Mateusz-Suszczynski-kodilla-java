@@ -1,4 +1,4 @@
-package com.my.excersise.hashmap;
+package com.my.excercise.hashmap;
 
 public class Setters {
     public static void main(String[] args) {

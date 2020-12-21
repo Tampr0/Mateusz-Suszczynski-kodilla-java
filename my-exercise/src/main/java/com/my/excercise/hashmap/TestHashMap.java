@@ -1,4 +1,4 @@
-package com.my.excersise.hashmap;
+package com.my.excercise.hashmap;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.my.excersise.tests;
+package com.my.excercise.tests;
 
 public class Konrad {
     public static void main(String[] args) {
