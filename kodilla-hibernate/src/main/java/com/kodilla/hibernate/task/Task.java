@@ -1,44 +1,61 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+
 @Entity
-@Table(name="TASKS")
+@Table (name = "TASKS")
 public class Task {
     private int id;
     private String description;
     private Date created;
     private int duration;
-
-    public Task() {
-    }
+    private TaskFinancialDetails taskFinancialDetails;
+    private TaskList taskList;
 
     public Task(String description, int duration) {
         this.description = description;
         this.duration = duration;
         this.created = new Date();
     }
+
+    public Task() {}
+
     @Id
-    @GeneratedValue
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
-    @Column(name = "DESCRIPTION")
+    @Column (name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
+
     @NotNull
-    @Column(name = "CREATED")
+    @Column (name = "CREATED")
     public Date getCreated() {
         return created;
     }
-    @Column(name = "DURATION")
+    @Column (name = "DURATION")
     public int getDuration() {
         return duration;
     }
+    @OneToOne(cascade = CascadeType.ALL,
+                fetch = FetchType.EAGER)
+    @JoinColumn(name = "TASK_FINANCIALS_ID")
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -54,5 +71,13 @@ public class Task {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
     }
 }
