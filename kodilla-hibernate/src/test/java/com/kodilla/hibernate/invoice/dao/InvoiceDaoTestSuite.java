@@ -65,7 +65,7 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, invoice2Id);
 
         //clean up
-        //invoiceDao.deleteById(invoiceId);
+        invoiceDao.deleteById(invoiceId);
         // I can't delete invoice2 cuz it's been already deleted with invoice (cuz of their relationship).
         //invoiceDao.deleteById(invoice2Id);
 

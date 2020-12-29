@@ -18,7 +18,7 @@ public class Invoice {
         this.number = number;
     }
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Column(name = "ID")
     public int getId() {

@@ -21,7 +21,7 @@ public class Item {
         this.quantity = quantity;
     }
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Column(name = "ID", unique = true)
     public int getId() {
@@ -46,7 +46,7 @@ public class Item {
         return value;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;

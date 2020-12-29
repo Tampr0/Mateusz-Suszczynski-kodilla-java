@@ -5,7 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@NamedNativeQuery(
+        name = "Company.findByFirstThreeLetters",
+        query = "select * from COMPANIES where substring(company_name, 1, 3) = :abc",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
