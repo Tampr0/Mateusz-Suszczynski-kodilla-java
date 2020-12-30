@@ -3,7 +3,6 @@ package com.kodilla.hibernate.invoice.dao;
 import com.kodilla.hibernate.invoice.Invoice;
 import com.kodilla.hibernate.invoice.Item;
 import com.kodilla.hibernate.invoice.Product;
-import com.kodilla.hibernate.invoice.dao.InvoiceDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +41,7 @@ public class InvoiceDaoTestSuite {
         item.setProduct(product);
         item2.setProduct(product);
         item3.setProduct(product2);
-        item4.setProduct(product2);
+        item4.setProduct(product2);             //invoice --> item -- product, item3
 
         invoice.getItems().add(item);
         invoice.getItems().add(item3);
@@ -66,8 +65,7 @@ public class InvoiceDaoTestSuite {
 
         //clean up
         invoiceDao.deleteById(invoiceId);
-        // I can't delete invoice2 cuz it's been already deleted with invoice (cuz of their relationship).
-        //invoiceDao.deleteById(invoice2Id);
+        invoiceDao.deleteById(invoice2Id);
 
 
     }
