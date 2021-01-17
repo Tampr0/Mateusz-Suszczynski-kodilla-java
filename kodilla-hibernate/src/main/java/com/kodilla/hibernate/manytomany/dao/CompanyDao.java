@@ -16,4 +16,7 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
 
     @Query(nativeQuery = true)
     List<Company> findByFirstThreeLetters(@Param("abc") String abc);
+
+    @Query("from Company where name like concat('%', :abc, '%')")
+    List<Company> findCompanyByAnyFragment(@Param("abc") String abc);
 }
