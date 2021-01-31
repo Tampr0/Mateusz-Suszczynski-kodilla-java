@@ -42,7 +42,7 @@ public class StoredProcTestSuite {
         statement.execute(sqlProcedureCall);
 
         //then
-        String sqlCheckTable = "select count(*) as how_many from books where bestseller = false";
+        String sqlCheckTable = "select count(*) as how_many from books where bestseller = true";
         ResultSet rs = statement.executeQuery(sqlCheckTable);
         int howMany = -1;
         if (rs.next()) {
@@ -50,6 +50,6 @@ public class StoredProcTestSuite {
         }
         statement.close();
         rs.close();
-        Assert.assertEquals(4, howMany);
+        Assert.assertEquals(3, howMany);
     }
 }
